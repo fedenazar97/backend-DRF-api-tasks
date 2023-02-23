@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'authentication',
     'rest_framework.authtoken',
     'todo',
+    #Swagger
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +131,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     )
 }
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
