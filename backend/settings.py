@@ -41,11 +41,14 @@ INSTALLED_APPS = [
     'authentication',
     'rest_framework.authtoken',
     'todo',
-    #Swagger
+    #SwaggerDoc
     'drf_yasg',
+    #CORS
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,6 +135,12 @@ REST_FRAMEWORK = {
     )
 }
 
+#CORS SETTINGS
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8000',
+    'http://localhost:3000'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
