@@ -21,6 +21,6 @@ class Login(APIView):
         password = request.data.get('password')
         user = authenticate(username=username, password=password)
         if user:
-            return Response({'token': user.auth_token.key})
+            return Response({'username': user.username, 'token': user.auth_token.key})
         else:
             return Response({'error':'Incorrect credentials'}, status=status.HTTP_400_BAD_REQUEST)
