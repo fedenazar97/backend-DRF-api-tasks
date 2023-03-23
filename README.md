@@ -17,4 +17,4 @@ The api has token authentication, and CRUD operations for tasks.
     ~~~
     python manage.py runserver
     ~~~
-- You can check the documentation of the API in the route localhost:8000/swagger/.  
+- You can check the documentation of the API in the route localhost:8000/schema/swagger/.  
