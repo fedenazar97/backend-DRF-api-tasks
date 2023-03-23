@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'authentication',
     'rest_framework.authtoken',
     'todo',
-    #SwaggerDoc
-    'drf_yasg',
+    #Spectacular/Swagger
+    'drf_spectacular',
     #CORS
     'corsheaders',
 ]
@@ -132,7 +132,17 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES':(
         'rest_framework.permissions.IsAuthenticated',
-    )
+    ),
+    'DEFAULT_SCHEMA_CLASS':'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS={
+    'TITLE':'TODO API',
+    'DESCRIPTION':'TASKS CRUD WITH AUTHENTICATION',
+    'VERSION' : '1.0.0',
+    'SWAGGER_UI_SETTINGS':{
+        'persistAuthorization':True,
+    },
 }
 
 #CORS SETTINGS

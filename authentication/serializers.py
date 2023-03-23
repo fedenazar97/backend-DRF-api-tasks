@@ -30,3 +30,8 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         Token.objects.create(user=user) 
         return user
+    
+class LoginSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= User
+        fields = ('username', 'password')

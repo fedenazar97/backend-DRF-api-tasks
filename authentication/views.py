@@ -1,10 +1,12 @@
 from django.shortcuts import render
 
-from .serializers import UserSerializer
+from .serializers import UserSerializer, LoginSerializer
 from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth import authenticate
+from drf_spectacular.utils import extend_schema
+
 
 # Create your views here.
 
@@ -15,6 +17,25 @@ class UserCreate(generics.CreateAPIView):
 
 class Login(APIView):
     permission_classes = ()
+    
+    @extend_schema(
+        request=LoginSerializer,
+        responses={
+            200: {
+                'type': 'object',
+                'properties': {
+                    'username': {'type': 'string'},
+                    'token': {'type': 'string'}
+                }
+            },
+            400: {
+                'type': 'object',
+                'properties': {
+                'error': {'type': 'string'}
+                }
+            }
+        },
+    )
 
     def post(self, request):
         username = request.data.get('username')
